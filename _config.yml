@@ -1,0 +1,77 @@
+# Site settings
+site: Spoorthi
+title: Writings by Spoorthi
+keywords: writings, fiction
+description: >-
+  Writings by Spoorthi
+lang: en-US
+timezone:  Europe/Lisbon
+#repo: https://github.com/onepase/Ephesus # site repo [optional]
+repo: https://github.com/spoo-bar/writings
+
+# Author settings
+author:
+  name: Spoorthi Satheesha
+  bio: Sporadic writer <br/>Serial anthropomorphizer
+  picture: assets/images/profile.jpg 
+  twitter: spoo_bar # twitter username
+  #youtube: https://www.youtube.com/channel/UCMmAto-wxBootXN91AzBiDg # youtube username
+  #email: your-email@email.com # email adress
+
+
+# URL settings
+url: "https://spoo-bar.github.io" # Domain Name of host. [username].github.io for github pages
+permalink: pretty
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+
+exclude:
+  - .jekyll-cache
+  - .obsidian
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - CONTRIBUTING.md
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-relative-links
+paginate: 20
+paginate_path: "/page/:num"
+
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /:slug
+  
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+relative_links:
+  enabled:     true
+  collections: false
