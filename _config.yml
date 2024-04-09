@@ -6,7 +6,6 @@ description: >-
   Writings by Spoorthi
 lang: en-US
 timezone:  Europe/Lisbon
-#repo: https://github.com/onepase/Ephesus # site repo [optional]
 repo: https://github.com/spoo-bar/writings
 
 # Author settings
@@ -20,7 +19,7 @@ author:
 
 
 # URL settings
-url: "https://spoo-bar.github.io" # Domain Name of host. [username].github.io for github pages
+url: "https://blog.spoorthi.dev" # Domain Name of host. [username].github.io for github pages
 permalink: pretty
 
 markdown: kramdown
