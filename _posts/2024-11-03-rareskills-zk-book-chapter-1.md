@@ -1,6 +1,6 @@
 ---
 title: "ZK-Book - Chapter 1 - P vs NP and its application to zero knowledge proofs"
-date: 2024-10-25T00:00:00+00:00
+date: 2024-11-03T00:00:00+00:00
 author: Spoorthi Satheesha
 layout: post
 permalink: /zk-book-chapter-1-p-vs-np/
@@ -45,6 +45,7 @@ Problems in P are:
 e.g Sorting
 
 **Witness** - Proof that you solved problem correctly
+
 e.g Sorted List
 
 **Pspace** - Problems require exponential resources to solve and verify. exponential time but not exponential memory.
