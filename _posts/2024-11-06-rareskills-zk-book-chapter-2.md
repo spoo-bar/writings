@@ -116,7 +116,9 @@ Above arithematic circuit compares 2 numbers, for sorting verification, all will
 ### To convert Arithematic Circuit to Boolean Circuit
 
 AND => $t === uv$
+
 OR => $t === u + v - uv$
+
 NOT => $t === 1 - u$
 
 e.g $out = (x ∧ ¬ y) ∨ z$
@@ -143,7 +145,212 @@ $$
 
 --- 
 
-Exercises:
+## Exercises:
 
-Well its my birthday today and I ended up getting drunk, so tomorrow I guess.
-Also visit [Encanto](https://www.encantojoseavillez.pt/en/) in Lisbon. Such good food, such good wine.
+### Question 1 
+
+Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ and is satisfied if at least one signal is 0.
+
+Because anything multiplied by 0, is 0
+
+$$
+x_1x_2 === 0
+$$
+
+Repeat this circuit for each sequential pair in the list
+
+### Question 2
+
+Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ and is satsified if all signals are 1.
+
+Because 1 multiplied by itself is 1,
+
+$$
+x_1x_2 === 1
+$$
+
+Repeat this circuit for each sequential pair in the list
+
+### Question 3
+
+A bipartite graph is a graph that can be colored with two colors such that no two neighboring nodes share the same color. Devise an arithmetic circuit scheme to show you have a valid witness of a 2-coloring of a graph. Hint: the scheme in this tutorial needs to be adjusted before it will work with a 2-coloring.
+
+Consider the two colors to be 0, 1
+
+Ensuring the node color is 0 or 1
+
+$$
+x(x-1) === 0 \\
+y(y-1) === 0
+$$
+
+Ensuring $x$ and $y$ are not the same
+
+| x | y | We want |
+| - | - | ------- |
+| 0 | 0 |    0    |
+| 0 | 1 |    1    |
+| 1 | 0 |    1    |
+| 1 | 1 |    0    |
+ 
+Therefore, we want XOR 
+$$
+1 === (x ∨ y) ∧ ¬(x ∧ y) \\
+1 === (x ∨ y) ∧ ¬(xy) \\
+1 === (x ∨ y) ∧ (1 - xy) \\
+1 === (x ∨ y)(1 - xy) \\
+1 === (x + y - xy)(1 - xy) \\
+1 === x(1 - xy) + y(1 - xy) -xy(1 - xy) \\
+1 === x - x^2y + y -xy^2 -xy +x^2y^2 \\
+1 === x^2y^2 - x^2y - xy^2 -xy + x + y
+$$
+
+### Question 4
+
+Create an arithmetic circuit that constrains k to be the maximum of x, y, or z. That is, k should be equal to x if x is the maximum value, and same for y and z.
+
+Note: There might be better ways to solve this, but here we go
+
+Assuming x,y,z are 3 bit numbers. Therefore, $n=4$
+
+Converting x,y,z to binary.
+
+$$
+2^2a_2 + 2^1a_1 + a_0 === x \\
+2^2b_2 + 2^1b_1 + b_0 === y \\
+2^2c_2 + 2^1c_1 + c_0 === z \\
+$$
+
+Ensuring that $a_i$, $b_i$ and $c_i$ are binary
+
+$$
+a_0(a_0 - 1 ) === 0 \\
+... \\
+b_0(b_0 - 1 ) === 0 \\
+... \\
+c_0(c_0 - 1 ) === 0 \\
+$$
+
+We know that,
+
+if x >= y, $2^{n-1} + (x-y)$
+
+if y >= z, $2^{n-1} + (y-z)$
+
+if z >= x, $2^{n-1} + (z-x)$
+
+$$
+2^3 + (x - y) === 8d_3 + 4d_2 + 2d_1 + d_0 \\
+2^3 + (y - z) === 8e_3 + 4e_2 + 2e_1 + e_0 \\
+2^3 + (z - x) === 8f_3 + 4f_2 + 2f_1 + f_0 \\
+$$
+
+Such that $d_i$, $e_i$ and $f_i$ are binary
+
+$$
+d_0(d_0 - 1 ) === 0 \\
+... \\
+e_0(e_0 - 1 ) === 0 \\
+... \\
+f_0(f_0 - 1 ) === 0 \\
+$$
+
+if x >= y, $d_3$ will be 1
+
+if y >= z, $e_3$ will be 1 
+
+if z >= x, $f_3$ will be 1
+
+if x >= y and y >= z, then x is max, $d_3 ∧ e_3 = 1$
+$$
+g === d_3e_3
+$$
+
+if y >= z and z >= x, then y is max, $e_3 ∧ f_3 = 1$
+$$
+h === e_3f_3
+$$
+
+if z >= x and x >= y, then z is max, $f_3 ∧ d_3 = 1$
+$$
+i === f_3d_3
+$$
+
+Constraint of $k$ is that, $k$ is
+
+1. x if x is max,
+2. y if y is max,
+3. z if z is max
+
+As Arithematic Circuit,
+
+$$
+k === gx ∨ hy ∨ iz \\
+k === (gx + hy - gxhy) ∨iz \\
+k === gx + hy - gxhy + iz - (gx + hy - gxhy)iz \\
+k === gx + hy - gxhy + iz - gxiz - hyiz + gxhyiz \\
+k === gx + hy + iz - gxhy - hyiz - gxiz + gxhyiz \\
+$$
+
+### Question 5 
+
+Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ, constrains them to be binary, and outputs 1 if at least one of the signals is 1. Hint: this is tricker than it looks. Consider combining what you learned in the first two problems and using the NOT gate.
+
+(Ignoring the hint)
+Ensuring that the signals are binary
+
+$$
+x_1(x_1 - 1) === 0 \\
+x_2(x_2 - 1) === 0 \\
+$$
+
+| $x_1$ | $x_2$ | We want |
+| ----- | ----- | ------- |
+|   0   |   0   |    0    |
+|   0   |   1   |    1    |
+|   1   |   0   |    1    |
+|   1   |   1   |    1    |
+
+Therefore, we want the OR gate
+
+$$
+1 === x_1 + x_2 - x_1x_2
+$$
+
+Repeat this circuit for each sequential pair in the list.
+
+Looking at the hint, is this tricky? idts but did I understand the question wrong then?
+And why would I use NOT gate? when OR gate solves it exactly 🤔
+
+### Question 6
+
+Create an arithmetic circuit to determine if a signal v is a power of two (1, 2, 4, 8, etc). Hint: create an arithmetic circuit that constrains another set of signals to encode the binary representation of v, then place additional restrictions on those signals.
+
+$$
+2^0 = 1 = 1 \\
+2^1 = 2 = 10 \\
+2^2 = 4 = 100 \\
+2^3 = 8 = 1000 \\
+$$
+
+Assuming $v$ is a 3 bit number, n = 4
+
+$$
+2^3v_3 + 2^2v_2 + 2^1v_1 + 2^0v_0 === v
+$$
+
+Ensuring that $v_i$ are binary
+
+$$
+v_3(v_3 - 1) === 0 \\
+v_2(v_2 - 1) === 0 \\
+v_1(v_1 - 1) === 0 \\
+v_0(v_0 - 1) === 0 \\
+$$
+
+If $v$ is $2^n$ then in binary only one bit will be $1$ and all else will be $0$
+
+$$
+s === v_3 + v_2 + v_1 + v_0 \\
+s === 1
+$$
