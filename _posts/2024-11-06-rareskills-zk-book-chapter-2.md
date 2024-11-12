@@ -34,7 +34,9 @@ $$
 x_1(x_1-1) === 0 \\
 (x_1x_2) === x_1 \\
 $$
+
 Valid witnesses:
+
 $$
 (x_1,x_2) = (1,1) \\
 (x_1,x_2) = (0,2) \\
@@ -52,11 +54,9 @@ $$
 
 Where blue = 1, red = 2, green = 3:
 
-$0===(1-x)*(2-x)*(3-x)$
-ensures that a region has only one color
+$ 0===(1-x)*(2-x)*(3-x) $ ensures that a region has only one color
 
-$0===(2-xy)*(3-xy)*(6-xy)$
-ensures two neighbouring regions have different colors
+$ 0===(2-xy)*(3-xy)*(6-xy) $ ensures two neighbouring regions have different colors
 
 ### Trivia
 
@@ -77,12 +77,14 @@ For $n$ bits, $u$ and $v$ need to be $n-1$ bits to prevent underflow and overflo
 For n = 4,
 
 Ensuring $u$ and $v$ are 3 bits
+
 $$
 2^2a_2 + 2^1a_1 + a_0 === u \\
 2^2b_2 + 2^1b_1 + b_0 === v
 $$
 
 Ensuring $a_i$ and $b_i$ are binary
+
 $$
 a_0(a_0 - 1) === 0 \\
 a_1(a_1 - 1) === 0 \\
@@ -93,11 +95,13 @@ b_2(b_2 - 1) === 0 \\
 $$
 
 $2^{n-1} + (u - v)$ as binary representation
+
 $$
 2^3 + (u - v) === 8 c_3 + 4 c_2 + 2 c_1 + c_0
 $$
 
 Ensuring $c_i$ is binary
+
 $$
 c_0(c_0 - 1) === 0 \\
 c_1(c_1 - 1) === 0 \\
@@ -105,6 +109,7 @@ c_2(c_2 - 1) === 0 \\
 $$
 
 Ensuring MSB is $1$, implying that $u$ is greater than or equal to $v$
+
 $$
 c_3 === 1
 $$
@@ -124,20 +129,15 @@ NOT => $t === 1 - u$
 e.g $out = (x ∧ ¬ y) ∨ z$
 
 1. Make all vars binary
+
 $$
 x(x-1)===0 \\
 y(y-1)===0 \\
 z(z-1)===0
 $$
 
-Alternatively,
-$$
-x^2 === 0 \\
-y^2 === 0 \\
-z^2 === 0
-$$
+Substitute for the gates,
 
-Therefore,
 $$
 (x ∧ ¬ y) ∨ z = x(1-y) + z - x(1-y)z \\
 = x-xy+z-xz+xyz
@@ -149,7 +149,7 @@ $$
 
 ### Question 1 
 
-Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ and is satisfied if at least one signal is 0.
+*Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ and is satisfied if at least one signal is 0.*
 
 Because anything multiplied by 0, is 0
 
@@ -161,7 +161,7 @@ Repeat this circuit for each sequential pair in the list
 
 ### Question 2
 
-Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ and is satsified if all signals are 1.
+*Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ and is satsified if all signals are 1.*
 
 Because 1 multiplied by itself is 1,
 
@@ -173,7 +173,7 @@ Repeat this circuit for each sequential pair in the list
 
 ### Question 3
 
-A bipartite graph is a graph that can be colored with two colors such that no two neighboring nodes share the same color. Devise an arithmetic circuit scheme to show you have a valid witness of a 2-coloring of a graph. Hint: the scheme in this tutorial needs to be adjusted before it will work with a 2-coloring.
+*A bipartite graph is a graph that can be colored with two colors such that no two neighboring nodes share the same color. Devise an arithmetic circuit scheme to show you have a valid witness of a 2-coloring of a graph. Hint: the scheme in this tutorial needs to be adjusted before it will work with a 2-coloring.*
 
 Consider the two colors to be 0, 1
 
@@ -194,6 +194,7 @@ Ensuring $x$ and $y$ are not the same
 | 1 | 1 |    0    |
  
 Therefore, we want XOR 
+
 $$
 1 === (x ∨ y) ∧ ¬(x ∧ y) \\
 1 === (x ∨ y) ∧ ¬(xy) \\
@@ -207,7 +208,7 @@ $$
 
 ### Question 4
 
-Create an arithmetic circuit that constrains k to be the maximum of x, y, or z. That is, k should be equal to x if x is the maximum value, and same for y and z.
+*Create an arithmetic circuit that constrains k to be the maximum of x, y, or z. That is, k should be equal to x if x is the maximum value, and same for y and z.*
 
 Note: There might be better ways to solve this, but here we go
 
@@ -262,16 +263,19 @@ if y >= z, $e_3$ will be 1
 if z >= x, $f_3$ will be 1
 
 if x >= y and y >= z, then x is max, $d_3 ∧ e_3 = 1$
+
 $$
 g === d_3e_3
 $$
 
 if y >= z and z >= x, then y is max, $e_3 ∧ f_3 = 1$
+
 $$
 h === e_3f_3
 $$
 
 if z >= x and x >= y, then z is max, $f_3 ∧ d_3 = 1$
+
 $$
 i === f_3d_3
 $$
@@ -294,7 +298,7 @@ $$
 
 ### Question 5 
 
-Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ, constrains them to be binary, and outputs 1 if at least one of the signals is 1. Hint: this is tricker than it looks. Consider combining what you learned in the first two problems and using the NOT gate.
+*Create an arithmetic circuit that takes signals x₁, x₂, …, xₙ, constrains them to be binary, and outputs 1 if at least one of the signals is 1. Hint: this is tricker than it looks. Consider combining what you learned in the first two problems and using the NOT gate.*
 
 (Ignoring the hint)
 Ensuring that the signals are binary
@@ -324,7 +328,7 @@ And why would I use NOT gate? when OR gate solves it exactly 🤔
 
 ### Question 6
 
-Create an arithmetic circuit to determine if a signal v is a power of two (1, 2, 4, 8, etc). Hint: create an arithmetic circuit that constrains another set of signals to encode the binary representation of v, then place additional restrictions on those signals.
+*Create an arithmetic circuit to determine if a signal v is a power of two (1, 2, 4, 8, etc). Hint: create an arithmetic circuit that constrains another set of signals to encode the binary representation of v, then place additional restrictions on those signals.*
 
 $$
 2^0 = 1 = 1 \\

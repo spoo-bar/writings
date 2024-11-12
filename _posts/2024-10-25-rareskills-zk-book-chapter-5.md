@@ -86,11 +86,11 @@ a = 2, b = 8, c = 12
 
 **Identity** - Binary operation with an element = element e.g addition of positive integers with 0
 
-**Union** - $ \\{ 1,2,3\\} \cup \\{2,3,4\\} = \\{1,2,3,4\\}$
+**Union** - $ \\{ 1,2,3\\} \cup \\{2,3,4\\} = \\{1,2,3,4\\} $
 
 where, identity element is empty set $\\{\\}$
 
-**Intersection** - $\\{1,2,3\\} \cap \\{2,3,4\\} = \\{2,3\\}$
+**Intersection** - $ \\{1,2,3\\} \cap \\{2,3,4\\} = \\{2,3\\} $
 
 where, identity element is the domain of the set itself  $\mathbb{Z}$
 
