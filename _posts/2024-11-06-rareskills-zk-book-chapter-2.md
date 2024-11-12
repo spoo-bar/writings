@@ -28,7 +28,7 @@ Arithematic Circuit is satisfied if there is an assignment to the variable such 
 
 **Signals** - Variables in an Arithematic Circuit. Because thats the terminology used by Circom.
 
-**Equality** - Two segnals hold equal values $===$
+**Equality** - Two signals hold equal values. Denoted by "$===$"
 
 $$
 x_1(x_1-1) === 0 \\
@@ -43,20 +43,20 @@ $$
 (x_1,x_2) = (0,anything)
 $$      
 
-|           | Boolean Circuit     | Arithematic Circuit         | 
-| --------- |-------------------- | --------------------------- |
-| Inputs    | Var are 0 or 1      | Signals may be any numbers  |
-| Operation | AND, OR, NOT        | Addition and Multiplication |
-| Output    | Satisfied when true | Satisfied when LHS = RHS    | 
-| Witness   | Assignment to the Boolean variables that satisfies the Boolean circuit | Assignment to the signals that satisfies all the equality constraints
+|               | Boolean Circuit     | Arithematic Circuit         | 
+| ------------- |-------------------- | --------------------------- |
+| **Inputs**    | Var are 0 or 1      | Signals may be any numbers  |
+| **Operation** | AND, OR, NOT        | Addition and Multiplication |
+| **Output**    | Satisfied when true | Satisfied when LHS = RHS    | 
+| **Witness**   | Assignment to the Boolean variables that satisfies the Boolean circuit | Assignment to the signals that satisfies all the equality constraints
 
 ### Arithematic Circuit for 3 color map of Australia 
 
 Where blue = 1, red = 2, green = 3:
 
-$ 0===(1-x)*(2-x)*(3-x) $ ensures that a region has only one color
+$0===(1-x)*(2-x)*(3-x)$ ensures that a region has only one color
 
-$ 0===(2-xy)*(3-xy)*(6-xy) $ ensures two neighbouring regions have different colors
+$0===(2-xy)*(3-xy)*(6-xy)$ ensures two neighbouring regions have different colors
 
 ### Trivia
 
@@ -358,3 +358,38 @@ $$
 s === v_3 + v_2 + v_1 + v_0 \\
 s === 1
 $$
+
+### Question 7
+
+*Create an arithmetic circuit that models the Subset sum problem. Given a set of integers (assume they are all non-negative),  determine if there is a subset that sums to a given value k. For example, given the set {3, 5, 17,21} and k=22, there is a subset {5, 17} that sums to 22. Of course, a subset sum problem does not necessarily have a solution.*
+
+Let the number of elements in the set = $n = 5$
+The elements of the set are $\\{ a_0, a_1, a_2, a_3, a_4\\}$
+
+Any subset given set of the given set will have elements <= 5
+
+If an element $a_i$ from the set exists in subset, then $x_i$ is $1$ else its $0$  
+
+Ensuring the $x_i$ is either $0$ or $1$
+
+$$
+x_0(x_0 - 1) === 0 \\
+x_1(x_1 - 1) === 0 \\
+x_2(x_2 - 1) === 0 \\
+x_3(x_3 - 1) === 0 \\
+x_4(x_4 - 1) === 0
+$$
+
+Ensuring that k is a sum of a subset of elements in set
+
+$$
+k === x_0a_0 + x_1a_1 + x_2a_2 + x_3a_3 + x_4a_4  
+$$
+
+### Question 8 
+
+The covering set problem starts with a set S = {1,2,...,10} and several well-defined subsets of S, for example: {1,2,3}, {3,5,7,9}, {8,10}, {5,6,7,8}, {2,4,6,8}, and asks if we can take at most 'k' subsets of S such that their union is S. In the example problem above, the answer for k = 4,is true because we can use {1,2,3}, {3,5,7,9}, {8,10}, {2,4,6,8}. Note that for each problems, the subsets we can work with are determined at the beginning. We cannot construct the subsets ourselves. If we had been given the subsets {1,2,3}, {4,5}{7,8,9,10} then there would be no solution because the number 6 is not in the subsets.
+
+On the other hand, if we had been given S = {1,2,3,4,5} and the subsets {1},{1,2},{3,4},{1,4,5} and asked can it be covered with k = 2 subsets, then there would be no solution. However, if k = 3 then a valid solution would be {1,2},{3,4},{1,4,5}.
+
+Our goal is to prove for a given set S and a defined list of subsets of S, if we can pick a set of subsets such that their union is S. Specifically, the question is if we can do it with k or fewer subsets. We wish to prove we know which k (or fewer) subsets to use by encoding the problem as an arithmetic circuit.
