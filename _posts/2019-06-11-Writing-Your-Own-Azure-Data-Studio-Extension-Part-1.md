@@ -6,6 +6,9 @@ layout: post
 permalink: /writing-your-own-azure-data-studio-extension-part-1/
 categories: Programming
 tags: [typescript]
+excerpt: "Part 1 of the tutorial on how to write your own Azure Data Studio extension"
+seo_title: "Writing your own Azure Data Studio extension, Part 1"
+seo_description: "Part 1 of the tutorial on how to write your own Azure Data Studio extension"
 ---
 
 You don’t need to have an extensive background in Javascript or TypeScript to write an Azure Data Studio extension. However, being familiar with the languages makes it easy. You can find the preliminary steps on [**this**](https://code.visualstudio.com/api/get-started/your-first-extension) page. This post is part one of a series on making Azure Data Studio extensions.

@@ -6,6 +6,9 @@ layout: post
 permalink: /handling-type-definition-errors-in-typescript
 categories: Programming
 tags: [typescript]
+excerpt: "Guide on how to handle Type Definition Errors in Typescript"
+seo_title: "Handling Type Definition Errors in Typescript"
+seo_description: "Guide on how to handle Type Definition Errors in Typescript"
 ---
 
 

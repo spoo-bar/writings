@@ -6,6 +6,9 @@ layout: post
 permalink: /adding-a-custom-resource-provider-for-your-aspnet-application/
 categories: Programming
 tags: [c#]
+excerpt: "Guide on how to add a Custom Language Resource Provider for your ASP.NET application"
+seo_title: "Adding a Custom Resource Provider for your ASP.NET application"
+seo_description: "Guide on how to add a Custom Language Resource Provider for your ASP.NET application"
 ---
 New to ASP.NET resources? Check out the [**MSDN Documentation**](https://docs.microsoft.com/en-us/previous-versions/ms227427(v=vs.140)) before progressing with this post.
 

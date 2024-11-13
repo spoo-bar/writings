@@ -6,6 +6,9 @@ layout: post
 permalink: /please-stop-using-semver-for-blockchains/
 categories: Opinion
 tags: [blockchain, cosmos]
+excerpt: "Opinion piece on why Cosmos blockchains should not use semver for versioning of the protocol code"
+seo_title: "Please stop using SemVer for Cosmos Blockchains"
+seo_description: "Opinion piece on why Cosmos blockchains should not use semver for versioning of the protocol code"
 ---
 
 Note: This post is writted with Cosmos-SDK based blockchains in mind.

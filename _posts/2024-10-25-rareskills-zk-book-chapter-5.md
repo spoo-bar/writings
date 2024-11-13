@@ -7,6 +7,9 @@ permalink: /zk-book-chapter-5-abstract-algebra/
 categories: Study
 tags: [math, zk]
 mathjax: true
+excerpt: "Notes and solved excercises for Chapter 5 of ZK-Book - Abstract Algebra"
+seo_title: "ZK-Book - Chapter 5 - Abstract Algebra"
+seo_description: "Notes and solved excercises for Chapter 5 of ZK-Book - Abstract Algebra"
 ---
 
 Book Link - [ZK Book](https://www.rareskills.io/zk-book)

@@ -6,6 +6,9 @@ layout: post
 permalink: /writing-your-own-azure-data-studio-extension-part-2/
 categories: Programming
 tags: [typescript]
+excerpt: "Part 2 of the tutorial on how to write your own Azure Data Studio extension"
+seo_title: "Writing your own Azure Data Studio extension, Part 2"
+seo_description: "Part 2 of the tutorial on how to write your own Azure Data Studio extension"
 ---
 
 In the following post, we will be building upon the changes done in the [**this**](./2019-06-11-Writing-Your-Own-Azure-Data-Studio-Extension-Part-1.md) post. So, I would recommend going back to that, if you haven’t already done so.

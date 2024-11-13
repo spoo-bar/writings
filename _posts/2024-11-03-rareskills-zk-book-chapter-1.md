@@ -7,6 +7,9 @@ permalink: /zk-book-chapter-1-p-vs-np/
 categories: Study
 tags: [math, zk]
 mathjax: true
+excerpt: "Notes for Chapter 1 of ZK-Book - P vs NP and its application to zero knowledge proofs"
+seo_title: "ZK-Book - Chapter 1 - P vs NP and its application to zero knowledge proofs"
+seo_description: "Notes for Chapter 1 of ZK-Book - P vs NP and its application to zero knowledge proofs"
 ---
 
 Book Link - [ZK Book](https://www.rareskills.io/zk-book)

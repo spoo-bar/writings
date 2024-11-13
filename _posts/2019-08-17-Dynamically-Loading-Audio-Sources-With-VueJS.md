@@ -6,6 +6,9 @@ layout: post
 permalink: /dynamically-loading-audio-sources-with-vuejs/
 categories: Programming
 tags: [typescript, vuejs]
+excerpt: "Tutorial and guide to dynamically loading audio sources with Vue.js"
+seo_title: "Dynamically loading audio sources with Vue.js"
+seo_description: "Tutorial and guide to dynamically loading audio sources with Vue.js"
 ---
 
 

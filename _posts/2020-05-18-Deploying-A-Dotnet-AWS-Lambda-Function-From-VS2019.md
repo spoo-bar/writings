@@ -6,6 +6,9 @@ layout: post
 permalink: /deploying-a-dotnet-aws-lambda-function-from-vs2019
 categories: Programming
 tags: [c#, aws]
+excerpt: "A tutorial guide to deploying a .NET Core AWS Lambda function from VS2019"
+seo_title: "Deploying a .NET Core AWS Lambda function from VS2019"
+seo_description: "A tutorial guide to deploying a .NET Core AWS Lambda function from VS2019"
 ---
 
 To use Visual Studio 2019 for AWS Lambda development, you will need the [**AWS Toolkit for Visual Studio**](https://aws.amazon.com/visualstudio/). It works like a charm, though the new project wizard could use a cleaner and fresh UI.
