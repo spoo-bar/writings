@@ -14,6 +14,11 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Run automatically every 6 hours on the 58th minute (hack to avoid congestion at 0th minute)
+  # Currently only I-Breathe is using this feature, so its fine if its not super upto date.
+  schedule:
+    - cron: '58 */6 * * *'
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
@@ -33,6 +38,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Run Custom Scripts
+        shell: pwsh
+        env:
+          APIKEY: ${{secrets.CRYPTOAPIS_KEY}}
+        run: |
+          .\scripts\ibreathe.ps1
       - name: Setup Ruby
         uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
         with:
