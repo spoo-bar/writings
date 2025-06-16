@@ -6,7 +6,8 @@ python -m pipx ensurepath
 $env:PATH += ";$env:USERPROFILE\.local\bin"
 
 # Install jupyter_contrib_nbextensions using pipx
-pipx install jupyter_contrib_nbextensions --include-deps
+pipx install jupyter --include-deps
+pipx install jupyter_contrib_nbextensions
 
 # Recursively list all .ipynb files inside the _posts directory
 $notebooks = Get-ChildItem -Path "./_posts" -Recurse -Filter "*.ipynb" | Select-Object -ExpandProperty FullName
