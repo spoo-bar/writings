@@ -34,7 +34,7 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,6 +44,10 @@ jobs:
           APIKEY: ${{secrets.CRYPTOAPIS_KEY}}
         run: |
           .\scripts\ibreathe.ps1
+      - name: Run Jupyter Script
+        shell: pwsh
+        run: |
+          .\scripts\jupyter.ps1
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
