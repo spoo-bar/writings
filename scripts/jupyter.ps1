@@ -1,10 +1,3 @@
-# Install pipx
-python -m pip install --user pipx
-python -m pipx ensurepath
-
-# Refresh environment to use pipx (may require restarting the shell)
-$env:PATH += ";$env:USERPROFILE\.local\bin"
-
 # Install jupyter_contrib_nbextensions using pipx
 pipx install jupyter --include-deps
 pipx install jupyter_contrib_nbextensions
