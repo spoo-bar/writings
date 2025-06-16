@@ -8,4 +8,5 @@ $notebooks = Get-ChildItem -Path "./_posts" -Recurse -Filter "*.ipynb" | Select-
 # Convert each Jupyter notebook to Jekyll markdown using the provided Python script
 foreach ($notebook in $notebooks) {
     python notebooks/jupyter_to_jekyll.py $notebook
+    Remove-Item $notebook -Force # Remove the original notebook file after conversion so jekyll doesn't process it
 }
