@@ -12,12 +12,6 @@ seo_title: "ZK-Bootcamp - Homework 1 - Modular Arithematic"
 seo_description: "Homework for Modular Arithermatic of Rareskill's ZK Bootcamp"
 ---
 
-{::nomarkdown}
-
-{% jupyter_notebook "../../notebooks/2025-06-14-rareskills-zk-bootcamp-homework-1.ipynb" %}
-
-{:/nomarkdown}
-
 
 
 
