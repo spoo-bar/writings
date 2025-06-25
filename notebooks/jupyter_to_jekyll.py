@@ -28,7 +28,7 @@ output_markdown_abs_path: str = os.path.join(output_abs_dir, base_file_name + '.
 jekyll_markdown_abs_path: str = os.path.join(output_abs_dir, base_file_name_with_date_prefix + '.md')  # '/Users/Desktop/_posts/YYYY-MM-DD-post-name/YYYY-MM-DD-post-name.md'
 
 print(f"Converting {ipynb_file_name} => {os.path.basename(jekyll_markdown_abs_path)}")
-subprocess.run(["jupyter", "nbconvert", args.ipynb_path, "--to", "markdown", "--config", config_script_path])
+subprocess.run(["jupyter", "nbconvert", args.ipynb_path, "--execute", "--allow-errors", "--to", "markdown", "--config", config_script_path])
 
 # Clean up markdown
 with open(output_markdown_abs_path, 'r') as fd:
